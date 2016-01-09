@@ -1,0 +1,56 @@
+{% extends "template.basic.html" %}
+{% set last_update_time = last_update_time %}
+{% set active_page = active_page|default('media') -%}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+
+<div class="row">
+    <h2><span class="glyphicon glyphicon-picture"></span> 絵巻一覧 {{ tweet_date }}</h2>
+    {% if emaki_lists %}
+        <ul>
+        {% for ｋ, v in media_list.iteritems() %}
+            <li><a href="{{v}}">{{ k }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <p>イメージが重なっている場合はリロードした後、画像が表示されてからスクロールしてください</p>
+     <div class="media">
+          {% for image_tweet in image_tweets %}
+          <div class="col-md-3 photo">
+                <img src="{{ image_tweet.user.profile_image_url }}" class="img-rounded"><a href="https://twitter.com/{{image_tweet.user.screen_name}}">{{image_tweet.user.name}}</a>
+                <ul class="list-inline">
+                {% for　tweet in image_tweet.extended_entities.media %}
+                    <li><a href="{{tweet.media_url}}" target="_blank"><img src="{{tweet.media_url}}:thumb" class="img-thumbnail"></a></li>
+                {% else %}
+                    <li><a href="{{tweet.media_url}}" target="_blank"><img src="{{ image_tweet.entities.media.0.media_url}}:thumb" class="img-thumbnail"></a></li>
+                {% endfor %}
+            </ul>
+                {{image_tweet.text}}
+                <br /><a href="{{ image_tweet.entities.media.0.expanded_url }}"><span class="glyphicon glyphicon-zoom-in">Webでもっと見る</span></a>
+          </div>
+          {% endfor %}
+    </div>
+</div>
+<script type="text/javascript" src="./js/snowfall.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    $(this).snowfall({image :"img/sen-drop.png", minSize: 10, maxSize:32});
+  });
+//<----remove the (); from here
+    /*
+    $(function(){
+        var $grid = $('.media').imagesLoaded(
+        function(){
+            $grid.masonry({
+                itemSelector : '.photo',
+                columnWidth: '.photo'
+            });
+        });
+        */
+
+          //Start the snow default options you can also make it snow in certain elements, etc.});
+</script>
+
+{% endblock %}

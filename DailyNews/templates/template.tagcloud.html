@@ -1,0 +1,39 @@
+{% extends "template.basic.html" %}
+{% set last_update_time = last_update_time %}
+{% set active_page = active_page|default('tagcloud') -%}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <script>
+        jQuery(document).ready(function($) {
+            $.fn.tagcloud.defaults = {
+                size: {start: 9, end: 25, unit: 'pt'},
+                color: {start: '#1f3134', end: '#cd5e3c'}
+            };
+
+            $(function () {
+              $('#tagcloud a').tagcloud();
+            });
+        });
+        </script>
+
+        <div class="col-md-12">
+            <h2><span class="glyphicon glyphicon-comment"></span>一日の話題単語{{title}}</h2>
+            <p><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-comment"></span> みんなこんなこと話していたよ</p>
+            <div id="tagcloud" class="tagcloud">
+                {% for　tag_cloud in tag_clouds %}
+                    <a href="#" rel="{{ tag_cloud[1] }}" id="{{ tag_cloud[0] }}">{{ tag_cloud[0] }}</a>
+                {% endfor %}
+
+            </div>
+            <hr />
+            <h3><span class="glyphicon glyphicon-ban-circle"> 以下の単語は省いています</span></h3>
+            {% for remove_word in remove_words %}
+                {{remove_word}},
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+<h2><span class="glyphicon glyphicon-picture"></span> 最新絵巻</h2>
+ <div class="media">
+    {% for image_tweet in image_tweets %}
+        <div class="col-md-3 photo">
+            <img src="{{ image_tweet.user.profile_image_url }}" class="img-rounded"><a href="https://twitter.com/{{image_tweet.user.screen_name}}">{{image_tweet.user.name}}</a>
+            <ul class="list-inline">
+            {% for　tweet in image_tweet.extended_entities.media %}
+                <li><a href="{{tweet.media_url}}:large" target="_blank"><img src="{{tweet.media_url}}:thumb" class="img-thumbnail"></a></li>
+            {% else %}
+                <li><a href="{{tweet.media_url}}:large" target="_blank"><img src="{{ image_tweet.entities.media.0.media_url}}:thumb" class="img-thumbnail"></a></li>
+            {% endfor %}
+        </ul>
+            <a href="{{ image_tweet.entities.media.0.expanded_url }}"><span class="glyphicon glyphicon-zoom-in">もっと見る</span></a>
+          </li>
+        </div>
+    {% endfor %}
+</div>

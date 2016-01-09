@@ -1,0 +1,14 @@
+{% extends "template.basic.html" %}
+{% set last_update_time = last_update_time %}
+{% set active_page = active_page|default('index') -%}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+    <div class="row">
+          {% include 'included-media.html' %}
+          {% include 'included-hashtags.html' %}
+          {% include 'included-tagcloud.html' %}
+          {% include 'included-rumors.html' %}
+    </div>
+{% endblock %}

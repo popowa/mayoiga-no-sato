@@ -1,0 +1,10 @@
+<div class="col-md-12">
+    <h2><span class="glyphicon glyphicon-comment">千楽の噂</span></h2>
+    <p><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-comment"></span> ﾋｿﾋｿ千楽にはこんな噂があるらしいよ</p>
+    <ul>
+    {% for　rumors in rumors %}
+        <li><a href="https://twitter.com/{{ rumors['tweet'][0]['user']['screen_name'] }}/status/{{ rumors['tweet'][0]['id_str'] }}" target="_blank"><span class="glyphicon glyphicon-comment"></span></a>{{ rumors['tweet'][0]['text'] }}</li>
+    {% endfor %}
+    </li>
+    <a href="https://twitter.com/hashtag/マ里・噂"><span class="glyphicon glyphicon-zoom-in"> 千楽の噂を見る</span></a>
+</div>

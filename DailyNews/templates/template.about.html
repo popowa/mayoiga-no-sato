@@ -1,0 +1,76 @@
+{% extends "template.basic.html" %}
+{% set last_update_time = last_update_time %}
+{% set active_page = active_page|default('about') -%}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="row show-grid">
+          <div class="col-md-6">
+              <h3>実装したいなって思っているだけ</h3>
+              <p><span class="glyphicon glyphicon-paperclip"></span>次やろうかなと思っているやつ</p>
+              <ul>
+                  <li>絵巻: もう少しいい感じに表示されるように調整</li>
+                  <li><span class="glyphicon glyphicon-paperclip"></span>参加者一覧（キャラシリンク付き）</li>
+                  <li><span class="glyphicon glyphicon-paperclip"></span>絵巻：削除されたやつを消す方法</li>
+                  <li>タグクラウド: 日付で区切ったページを作る。メインは常に24時間内で後で振り返る用</li>
+                  <li>絵巻: 拡大画像をポップアップで表示する</li>
+                  <li>絵巻: 日付とかユーザー別に検索が出来るJS。後は人気(fav)ランクにソートする機能とか？</li>
+                  <li>仲良しさん: 実装したいなーと思って早3000年</li>
+                  <li>参加者別よく出現する時間帯: よく出没する時間を調べて待ち伏せ、ストーカー出来るかもしれない</li>
+              </ul>
+              <h3>作業した・実装した</h3>
+              <ul>
+                  <li>日別ページは廃止しました</li>
+                  <li><s>よくお喋りしていると上位20人を表示してみた</s></li>
+                  <li>タグクラウド:トップに人気のキーワード何件か表示</li>
+                  <li>見やすく全体的に変更</li>
+                  <li>話題のハッシュタグ一覧</li>
+                  <li>絵巻: pinterestみたいなUI</li>
+                  <li><a href="http://jinja.pocoo.org/docs/dev/tricks/">ナビゲーションにこれつける</a></li>
+                  <li>タグクラウド：辞書入れ替えた</li>
+                  <li>絵巻: 日付で区切ったページを作る。メインは常に24時間内で後で振り返る用</li>
+                  <li>タグクラウド: MeCab入れて動かす</li>
+              </ul>
+              <h3>使用したツール、アプリなど</h3>
+              <ul class="list-inline">
+                  <li><a href="http://taku910.github.io/mecab/" target="_blank">MeCab<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><a href="https://github.com/neologd/mecab-ipadic-neologd" target="_blank">Neologism<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><a href="https://www.mongodb.org/" target="_blank">MongoDB<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><a href="https://dev.twitter.com/rest/public" target="_blank">Twitter API<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><a href="http://docs.python.jp/3/index.html" target="_blank">Python 3.4.3<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><a href="https://aws.amazon.com/jp/documentation/s3/" target="_blank">Amazon Simple Storage Service<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><a href="http://vps.sakura.ad.jp/" target="_blank">さくらVPS<span class="glyphicon glyphicon-link"></span></a></li>
+                  <li><s><a href="http://masonry.desandro.com/" target="_blank">Masonry<span class="glyphicon glyphicon-link"></span></a></s></li>
+
+
+              </ul>
+          </div>
+          <div class="col-md-6" id="about">
+            <h3>マヨイガの里について</h3>
+            <p>参考リンク</p>
+            <ul>
+              <li><a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=52764855" target="_blank"><span class="glyphicon glyphicon-eye-open">マヨイガの里公式目録</span></a></li>
+              <li><a href="https://twitter.com/mayoiganosato" target="_blank"><span class="glyphicon glyphicon-user">マヨイガの里公式主催者Twitterアカウント</span></li>
+              <li><a href="https://twitter.com/myigfk" target="_blank"><span  class="glyphicon glyphicon-user">マヨイガの里公式副主催者Twitterアカウント</span></a></li>
+              <li><a href="https://twitter.com/myig_k" target="_blank"><span class="glyphicon glyphicon-pencil">壁打ち</span></a></li>
+              <li><a href="https://shindanmaker.com/572011" target="_blank"><span class="glyphicon glyphicon-certificate">九十九社【おみくじ】</span></a>
+            </ul>
+            <h3>非公式マヨイガの里ダイジェストとは</h3>
+            <p>このサイトは<a href="https://twitter.com/azusa_mayoiga">梓</a>で参加している<a href="https://twitter.com/p0p0wa">popowa</a>が、全然まったくびっくりするほどなりきり出来ない事を糧に作ったダイジェストです。<br />
+                この内容は梓アカウントでフォローしている方のツイートを取得し解析してHTMLとして出力しています。<br />
+                1時間1回更新(20分ぐらい)しています<br />
+            <p><span class="glyphicon glyphicon-warning-sign"></span>要望、クレームについて</p>
+
+            <p>本サイトはマヨイガの里の主催者様とは関係ありません。要望、クレームがあれば梓のDMもしくはpopowa(鍵垢ではありません)にお知らせ下さい。</br>
+                例えば以下の事は対応可能です。<p>
+                    <ul>
+                        <li>自分のツイートは対象外にして欲しい</li>
+                    </ul>
+                </p>
+          </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+<div class="col-md-12">
+    <h2><span class="glyphicon glyphicon-comment">　話題の単語（出現回数順）</span></h2>
+    <p><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-comment"></span> みんなこんな言葉を囁き合っていたよ</p>
+    <div id="tagcloud">
+    {% for　tag_cloud in tag_clouds %}
+        <a href="#" rel="{{ tag_cloud[1] }}" id="{{ tag_cloud[0] }}">{{ tag_cloud[0] }}</a>
+    {% endfor %}
+    </div>
+    <a href="tagcloud.html"><span class="glyphicon glyphicon-zoom-in"> 全話題の単語を見る</span></a>
+</div>

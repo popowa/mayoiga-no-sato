@@ -1,0 +1,22 @@
+    <script>
+    jQuery(document).ready(function($) {
+        $.fn.tagcloud.defaults = {
+            size: {start: 9, end: 25, unit: 'pt'},
+            color: {start: '#5c9291', end: '#1f3134'}
+        };
+
+        $(function () {
+          $('#tagcloud a').tagcloud();
+        });
+    });
+    </script>
+
+    <div class="col-md-12">
+        <h2><span class="glyphicon glyphicon-tags"></span> 人気のハッシュタグ</h2>
+        <p><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-comment"></span> みんなこんな場所やタグで話していたよ</p>
+        <div id="tagcloud" class="tagcloud">
+            {% for　tag, k in tag_clouds.items() %}
+                <a href="https://twitter.com/hashtag/{{ tag }}" rel="{{ k }}" id="{{ tag }}">#{{ tag }}</a>
+            {% endfor %}
+        </div>
+    </div>

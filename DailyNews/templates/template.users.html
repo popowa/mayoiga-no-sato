@@ -1,0 +1,21 @@
+{% extends "template.basic.html" %}
+{% set last_update_time = last_update_time %}
+{% set active_page = active_page|default('index') -%}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+    <div class="row">
+    <div class="col-md-12">
+        <h2><span class="glyphicon glyphicon-stats"></span> 今日よくお喋りしている人</h2>
+        <p><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-comment"></span> 声かけたら遊んでくれるかもしれない！？</p>
+
+            {% for　id_str, num in most_talked_users %}
+                <div class="col-md-1 num">
+                    {{num}}回<br />
+                    <a href="https://twitter.com/{{users[id_str]['screen_name']}}"><img src="{{users[id_str]['profile_image_url']}}" class="img-thumbnail"></a>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

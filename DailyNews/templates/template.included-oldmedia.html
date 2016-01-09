@@ -1,0 +1,9 @@
+<div class="col-md-12">
+    <h2><span class="glyphicon glyphicon-picture"></span>日別過去の絵巻</h2>
+
+    <ul class="list-inline">
+    {% for media in media_list %}
+        <li><a href="media-{{ media }}.html">
+                <span class="glyphicon glyphicon-time">{{ media }}</span></a>
+    {% endfor %}
+</ul>
